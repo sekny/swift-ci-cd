@@ -29,19 +29,26 @@ jobs:
         # Use the Ruby version specified in your Gemfile/Gemfile.lock, or a stable default
         ruby-version: '3.3' 
         bundler-cache: true # Installs gems and caches them for faster builds
-      # ✅ CORRECT INDENTATION - Align with 'uses' and 'with'
-      working-directory: ./Swift-CI-CD
+    - name: 📦 Finalize Gem Installation
+      run: |
+        cd ./Swift-CI-CD
+        bundle install
 
     # No need to explicitly call 'bundle install' and 'fastlane install_plugins' 
     # if 'bundler-cache: true' is used and your Gemfile is correct.
 
     - name: 🔄 Reset Swift Package Caches
-      run: xcodebuild -resolvePackageDependencies -target "Swift-CI-CD" -configuration Debug
-      working-directory: ./Swift-CI-CD
+      run: |
+        # ➡️ FIX: Change directory before running xcodebuild
+        cd ./Swift-CI-CD
+        xcodebuild -resolvePackageDependencies -target "Swift-CI-CD" -configuration Debug
 
     - name: 🏃 Run Build and Test Lane
-      run: bundle exec fastlane build_and_test --clean
-      working-directory: ./Swift-CI-CD
+      run: |
+        # ➡️ FIX: Change directory before executing Fastlane
+        cd ./Swift-CI-CD
+        bundle exec fastlane build_and_test --clean
+    
       
     # 💡 If you need to pass files (like .ipa) to the deploy job, add an artifact upload step here:
     # - name: Upload Artifacts
