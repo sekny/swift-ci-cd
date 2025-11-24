@@ -283,8 +283,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		C91D79E82ED063E700257C0D /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (

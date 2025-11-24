@@ -24,20 +24,68 @@
 
 
 platform :ios do
+  
+  # ➡️ CONFIGURATION: REPLACE THESE PLACEHOLDERS WITH YOUR ACTUAL VALUES ⬅️
+  # Use either 'project_path' OR 'workspace_path', not both.
+  project_path = "Swift-CI-CD.xcodeproj"
+  # workspace_path = "YourAppName.xcworkspace" # Uncomment if you use a workspace (e.g., with CocoaPods)
+  scheme_name = "UAT" 
+  
+  # --- Lane for Continuous Integration (CI) and Local Testing ---
   lane :build_and_test do
-    # Build the project
-    gym
-
-    # Run tests
-    scan
+    # 1. (Optional) Install dependencies if needed (e.g., if using CocoaPods)
+    # cocoapods 
+    
+    # 2. Build the project for the iOS Simulator (Fast and suitable for testing)
+    gym(
+      scheme: scheme_name,
+      project: project_path, # Use this OR workspace: workspace_path
+      configuration: "Debug",
+      sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
+      clean: true,
+      silent: true
+    )
+    
+    # 3. Run tests on a specified simulator
+    scan(
+      scheme: scheme_name,
+      project: project_path, # Use this OR workspace: workspace_path
+      device: "iPhone 15", # Specify a common simulator device
+      sdk: "iphonesimulator",
+      clean: true
+    )
+    
+    # Optional: Add a notification if tests pass
+    # slack(message: "Tests for #{scheme_name} passed successfully!")
   end
-
+  
+  # --- Lane for Deployment to App Store Connect (TestFlight/Production) ---
   lane :deploy_to_app_store do
-    # Increment the build number
-    increment_build_number
+    # 1. Update the build number BEFORE building
+    increment_build_number(
+      xcodeproj: project_path 
+    )
 
-    # Build and release to App Store
-    gym
-    deliver
+    # 2. Build the App Store Release Archive
+    gym(
+      scheme: scheme_name,
+      project: project_path, # Use this OR workspace: workspace_path
+      configuration: "Release",
+      export_method: "app-store", # ESSENTIAL for distribution
+      sdk: "iphoneos", # CRUCIAL: Targets the device SDK for a valid archive
+      output_directory: "./fastlane/builds", # Define where the IPA goes
+      clean: true,
+      silent: true
+    )
+    
+    # 3. Deploy to App Store Connect (TestFlight or Production)
+    deliver(
+      ipa: "./fastlane/builds/#{scheme_name}.ipa",
+      # Set 'force: true' to handle possible version errors during deployment
+      force: true
+    )
+    
+    # Optional: Post-deployment notification
+    # slack(message: "New version of #{scheme_name} deployed to App Store Connect!")
   end
 end
