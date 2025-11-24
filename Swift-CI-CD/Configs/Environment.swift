@@ -23,7 +23,7 @@ public enum Environment {
 	/// If cannot find Info.plist, simply crash as it is a developer error and should never happen
 	private static let infoDictionary: [String: Any] = Bundle.main.infoDictionary ?? [:]
 	
-	static let apiBaseUrl: URL = .init(string: infoDictionary[Keys.apiBaseUrl.rawValue] as! String)!
+	static let apiBaseUrl: String = infoDictionary[Keys.apiBaseUrl.rawValue] as? String ?? ""
 	static let apiSecret: String = infoDictionary[Keys.apiSecret.rawValue] as? String ?? ""
 	static let version: String = infoDictionary[Keys.version.rawValue] as? String ?? ""
 	static let buildNumber: String = infoDictionary[Keys.buildNumber.rawValue] as? String ?? ""
