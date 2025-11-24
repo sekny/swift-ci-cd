@@ -43,7 +43,7 @@ platform :ios do
       configuration: "Debug",
       sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
       clean: true,
-      silent: true
+      xcargs: "VERBOSE_SCRIPT_LOGGING=YES",
     )
     
     # 3. Run tests on a specified simulator
