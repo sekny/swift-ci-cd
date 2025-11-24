@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9981C232ED0536200AF8466"
-               BuildableName = "Swift-CI-CD.app"
+               BuildableName = "CI CD uat.app"
                BlueprintName = "Swift-CI-CD"
                ReferencedContainer = "container:Swift-CI-CD.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9981C232ED0536200AF8466"
-            BuildableName = "Swift-CI-CD.app"
+            BuildableName = "CI CD uat.app"
             BlueprintName = "Swift-CI-CD"
             ReferencedContainer = "container:Swift-CI-CD.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9981C232ED0536200AF8466"
-            BuildableName = "Swift-CI-CD.app"
+            BuildableName = "CI CD uat.app"
             BlueprintName = "Swift-CI-CD"
             ReferencedContainer = "container:Swift-CI-CD.xcodeproj">
          </BuildableReference>
