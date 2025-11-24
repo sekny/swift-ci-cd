@@ -33,8 +33,11 @@ jobs:
     # No need to explicitly call 'bundle install' and 'fastlane install_plugins' 
     # if 'bundler-cache: true' is used and your Gemfile is correct.
 
+    - name: 🔄 Reset Swift Package Caches
+      run: xcodebuild -resolvePackageDependencies -target "Swift-CI-CD" -configuration Debug
+
     - name: 🏃 Run Build and Test Lane
-      run: bundle exec fastlane build_and_test
+      run: bundle exec fastlane build_and_test --clean
       
     # 💡 If you need to pass files (like .ipa) to the deploy job, add an artifact upload step here:
     # - name: Upload Artifacts
