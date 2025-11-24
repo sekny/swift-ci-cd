@@ -79,7 +79,6 @@ jobs:
       with:
         ruby-version: '3.3'
         bundler-cache: true
-      working-directory: ./Swift-CI-CD
         
     # 💡 If using artifacts: Download them here instead of rebuilding
     # - name: Download Artifacts
