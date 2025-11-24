@@ -16,7 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: swift build -v
+    - name: 🔨 Build Xcode Project
+      run: xcodebuild build -scheme "UAT" -project "Swift-CI-CD.xcodeproj"
+    # - name: Build
+    #   run: swift build -v
     - name: Run tests
       run: swift test -v
