@@ -1,0 +1,34 @@
+//
+//  SIT.xcconfig
+//  Swift-CI-CD
+//
+//  Created by Sekny Yim on 24-11-2025.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+// Backward Compatible Values
+IS_PRODUCTION = NO
+ENV_NAME = sit
+
+BASE_URL = https:/$()/jsonplaceholder.typicode.com
+
+CLIENT_SECRET = 166
+
+CLIENT_ID = mobileapps_ios
+
+APPLICATION_ID = PORTAL_APP
+
+// Overriding (do NOT change key name)
+// app name
+PRODUCT_NAME = CI CD $(ENV_NAME)
+// bundle id
+PRODUCT_BUNDLE_IDENTIFIER = com.sekny.ci-cd.$(ENV_NAME)
+// app icon
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_$(ENV_NAME)
+// app version
+MARKETING_VERSION = 1.0.0
+// build number
+CURRENT_PROJECT_VERSION = 2025112401-$(ENV_NAME)

@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Swift_CI_CD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CI_CD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,16 +23,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.0 - 20251124(SIT)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYL-r1-pRS">
+                                <rect key="frame" x="32" y="801" width="329" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5MW-gF-t35" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nc8-BH-MXQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5MW-gF-t35" secondAttribute="trailing" constant="16" id="Ocg-tv-DH1"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="5MW-gF-t35" secondAttribute="trailing" constant="16" id="Ocg-tv-DH1"/>
+                            <constraint firstItem="FYL-r1-pRS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RI6-ru-RKF"/>
+                            <constraint firstItem="FYL-r1-pRS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U22-wM-dTn"/>
+                            <constraint firstItem="FYL-r1-pRS" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="lDu-5e-cQ6"/>
                             <constraint firstItem="5MW-gF-t35" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n2p-NI-LBL"/>
-                            <constraint firstItem="5MW-gF-t35" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="u0I-sN-37B"/>
+                            <constraint firstItem="5MW-gF-t35" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="u0I-sN-37B"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="FYL-r1-pRS" secondAttribute="trailing" constant="16" id="xgZ-g2-hPj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblVersion" destination="FYL-r1-pRS" id="XNj-gF-wua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,6 +55,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

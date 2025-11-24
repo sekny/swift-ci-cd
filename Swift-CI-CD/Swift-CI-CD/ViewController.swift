@@ -10,15 +10,22 @@ import Alamofire
 
 class ViewController: UIViewController {
 	
+	@IBOutlet weak var lblVersion: UILabel!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
 		
-		testLoad()
+		setup()
 	}
 	
-	private func testLoad() {
-		let url = "https://jsonplaceholder.typicode.com/users"
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		requestAPI()
+	}
+	
+	private func requestAPI() {
+		let url = "\(Environment.apiBaseUrl)/users"
 		AF.request(url, method: .get)
 			.validate()
 			.responseDecodable(of: [User].self) { response in
@@ -29,6 +36,10 @@ class ViewController: UIViewController {
 					print("Request failed with error:", error)
 				}
 			}
+	}
+	
+	private func setup() {
+		lblVersion.text = "\(Environment.version) (\(Environment.buildNumber.uppercased()))"
 	}
 }
 
