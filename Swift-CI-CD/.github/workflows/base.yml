@@ -16,7 +16,7 @@ jobs:
     - name: Set up Xcode
       uses: actions/setup-xcode@v2
       with:
-        xcode-version: '12.x' # Choose the appropriate version
+        xcode-version: '16.2' # Choose the appropriate version
 
     - name: Install dependencies
       run: |
@@ -36,7 +36,7 @@ jobs:
     - name: Set up Xcode
       uses: actions/setup-xcode@v2
       with:
-        xcode-version: '12.x' # Choose the appropriate version
+        xcode-version: '16.2' # Choose the appropriate version
 
     - name: Install dependencies
       run: |
