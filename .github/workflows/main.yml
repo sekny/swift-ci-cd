@@ -35,6 +35,7 @@ jobs:
 
     - name: 🔄 Reset Swift Package Caches
       run: xcodebuild -resolvePackageDependencies -target "Swift-CI-CD" -configuration Debug
+      working-directory: ./Swift-CI-CD
 
     - name: 🏃 Run Build and Test Lane
       run: bundle exec fastlane build_and_test --clean
