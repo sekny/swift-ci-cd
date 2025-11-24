@@ -47,7 +47,7 @@ jobs:
       run: |
         # ➡️ FIX: Change directory before executing Fastlane
         cd ./Swift-CI-CD
-        bundle exec fastlane build_and_test
+        bundle exec fastlane ios build_and_test
     
       
     # 💡 If you need to pass files (like .ipa) to the deploy job, add an artifact upload step here:
@@ -98,4 +98,4 @@ jobs:
     - name: ⬆️ Deploy to App Store
       # IMPORTANT: If you are using artifacts, you might modify your Fastfile 
       # to skip the 'gym' step in the deploy lane since the IPA is already built.
-      run: bundle exec fastlane deploy_to_app_store
+      run: bundle exec fastlane ios deploy_to_app_store
