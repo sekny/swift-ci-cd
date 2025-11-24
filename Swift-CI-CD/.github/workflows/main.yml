@@ -3,7 +3,7 @@ name: CI/CD for iOS
 on:
   push:
     branches:
-      - fastlane
+      - main
 
 jobs:
   build:
