@@ -3,45 +3,85 @@ name: CI/CD for iOS
 on:
   push:
     branches:
-      - main
+      - main # Triggers on push to the main branch
 
 jobs:
-  build:
-    runs-on: macOS-latest
+  # 1. BUILD and TEST Job
+  build_and_test:
+    name: Build & Test 🧪
+    runs-on: macos-latest # Use a specific macOS version (e.g., macos-14) for stability if needed
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: ⬇️ Checkout repository
+      uses: actions/checkout@v4 # Use the latest version
 
-    - name: Set up Xcode
-      uses: actions/setup-xcode@v2
+    - name: 🍎 Select Xcode Version
+      # FIX: The 'actions/setup-xcode' action does not exist in the 'actions/' organization.
+      # Use the correct, community-maintained action (maxim-lobanov/setup-xcode).
+      uses: maxim-lobanov/setup-xcode@v1 
       with:
-        xcode-version: '16.2' # Choose the appropriate version
+        xcode-version: '16.2' # Ensure this version is available on the runner
 
-    - name: Install dependencies
-      run: |
-        bundle install
-        bundle exec fastlane install_plugins
+    - name: 💎 Install Ruby & Dependencies
+      # Setup Ruby before installing gems, necessary for Bundler/Fastlane
+      uses: ruby/setup-ruby@v1
+      with:
+        # Use the Ruby version specified in your Gemfile/Gemfile.lock, or a stable default
+        ruby-version: '3.3' 
+        bundler-cache: true # Installs gems and caches them for faster builds
 
-    - name: Build and test
+    # No need to explicitly call 'bundle install' and 'fastlane install_plugins' 
+    # if 'bundler-cache: true' is used and your Gemfile is correct.
+
+    - name: 🏃 Run Build and Test Lane
       run: bundle exec fastlane build_and_test
-
+      
+    # 💡 If you need to pass files (like .ipa) to the deploy job, add an artifact upload step here:
+    # - name: Upload Artifacts
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: built-ipa
+    #     path: ./fastlane/builds/*.ipa # Adjust path to your build output
+      
+  # 2. DEPLOY Job
   deploy:
-    runs-on: macOS-latest
+    name: Deploy to App Store 🚀
+    needs: build_and_test # This job only runs if 'build_and_test' job succeeds
+    runs-on: macos-latest
 
+    # Add environment variables here for Fastlane to access
+    env:
+      FASTLANE_USER: ${{ secrets.FASTLANE_USER }} # Your Apple ID email
+      FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }} # App-specific password
+      # Optional: To skip interactive authentication checks
+      FASTLANE_SKIP_PDF_GENERATION: 1
+      FASTLANE_SKIP_COLLECT_AND_SUBMIT_LOGS: 1
+      
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Xcode
-      uses: actions/setup-xcode@v2
+    - name: ⬇️ Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: 🍎 Select Xcode Version
+      # Re-use the same setup-xcode action
+      uses: maxim-lobanov/setup-xcode@v1 
       with:
-        xcode-version: '16.2' # Choose the appropriate version
+        xcode-version: '16.2'
 
-    - name: Install dependencies
-      run: |
-        bundle install
-        bundle exec fastlane install_plugins
+    - name: 💎 Install Ruby & Dependencies
+      # Install gems again in this job
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true
+        
+    # 💡 If using artifacts: Download them here instead of rebuilding
+    # - name: Download Artifacts
+    #   uses: actions/download-artifact@v4
+    #   with:
+    #     name: built-ipa
+    #     path: ./fastlane/builds
 
-    - name: Deploy to App Store
+    - name: ⬆️ Deploy to App Store
+      # IMPORTANT: If you are using artifacts, you might modify your Fastfile 
+      # to skip the 'gym' step in the deploy lane since the IPA is already built.
       run: bundle exec fastlane deploy_to_app_store
