@@ -56,7 +56,7 @@ jobs:
       run: |
         # ➡️ FIX: Change directory before running xcodebuild
         cd ./Swift-CI-CD
-        xcodebuild -resolvePackageDependencies -target "Swift-CI-CD" -configuration Release(UAT)
+        xcodebuild -resolvePackageDependencies -target "Swift-CI-CD" -configuration 'Release(UAT)'
 
     - name: 🏃 Run Build and Test Lane
       run: |
