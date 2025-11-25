@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 This is CI/CD for automation test, build, archive and deploy with environment UAT
 
+### ios deploy_to_app_store
+
+```sh
+[bundle exec] fastlane ios deploy_to_app_store
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

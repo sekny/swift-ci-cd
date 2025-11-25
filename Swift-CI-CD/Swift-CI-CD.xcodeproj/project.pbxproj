@@ -223,9 +223,11 @@
 					};
 					C9981C392ED0536300AF8466 = {
 						CreatedOnToolsVersion = 16.2;
+						TestTargetID = C9981C232ED0536200AF8466;
 					};
 					C9981C432ED0536300AF8466 = {
 						CreatedOnToolsVersion = 16.2;
+						TestTargetID = C9981C232ED0536200AF8466;
 					};
 				};
 			};
@@ -292,6 +294,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/swiftlint-ran",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -428,7 +431,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -456,6 +459,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Debug(Stage)";
 		};
@@ -473,6 +477,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(Stage)";
 		};
@@ -565,7 +570,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -593,6 +598,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Debug(SIT)";
 		};
@@ -610,6 +616,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(SIT)";
 		};
@@ -695,7 +702,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -723,6 +730,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Release(UAT)";
 		};
@@ -740,6 +748,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(UAT)";
 		};
@@ -825,7 +834,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -853,6 +862,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Release(SIT)";
 		};
@@ -870,6 +880,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(SIT)";
 		};
@@ -955,7 +966,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -983,6 +994,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Release(Stage)";
 		};
@@ -1000,6 +1012,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(Stage)";
 		};
@@ -1091,7 +1104,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1119,6 +1132,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Debug(Prod)";
 		};
@@ -1136,6 +1150,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(Prod)";
 		};
@@ -1164,7 +1179,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1201,7 +1216,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
-				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_MODULE_NAME = Swift_CI_CD;
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1350,6 +1365,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Debug(UAT)";
 		};
@@ -1368,6 +1384,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI CD uat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CI CD uat";
 			};
 			name = "Release(Prod)";
 		};
@@ -1385,6 +1402,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(UAT)";
 		};
@@ -1402,6 +1420,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(Prod)";
 		};

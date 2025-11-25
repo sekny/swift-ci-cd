@@ -40,26 +40,47 @@ platform :ios do
     branch = git_branch
 
     # --- Conditional Logic ---
-    if branch.start_with?("feature/main_")
-      UI.message("🛠️ Feature Branch Detected: #{branch}. Building with Debug/UAT config.")
+    if branch == "main"
+      UI.message("🛠️ Main Branch Detected: #{branch}. Building with Release(UAT) config.")
       
       # Configuration for feature development and testing
       build_scheme = "Debug(UAT)"
       scheme_name = "UAT" 
-
-    elsif branch.start_with?("release/")
-      UI.message("📢 Release Branch Detected: #{branch}. Building with Release/Staging config.")
+    
+    elsif branch.start_with?("feature/main_")
+      UI.message("🛠️ Feature Branch Detected: #{branch}. Building with Release(UAT) config.")
       
-      # Configuration for release candidates, testing release signing/performance
-      build_scheme = "Release(Stage)" # Could be your main Production scheme
-      scheme_name = "Stage" # Typically use Release config for release branches
-
-    else
-      UI.message("⚙️ Default Branch Detected: #{branch}. Using standard configuration.")
+      # Configuration for feature development and testing
+      build_scheme = "Debug(UAT)"
+      scheme_name = "UAT" 
+    
+    elsif branch.start_with?("feature/")
+      UI.message("⚙️ Default Branch Detected: #{branch}. Building with Release(UAT) config.")
       
       # Default configuration (e.g., building from 'main' or local test)
-      build_scheme = "Release(Prod)"
-      scheme_name = "Production"
+      build_scheme = "Release(UAT)"
+      scheme_name = "UAT"
+
+    elsif branch.start_with?("release/")
+      UI.message("📢 Release Branch Detected: #{branch}. Building with Release(Prod) config.")
+      
+      # Configuration for release candidates, testing release signing/performance
+      build_scheme = "Release(Prod)" # Could be your main Production scheme
+      scheme_name = "Production" # Typically use Release config for release branches
+
+    elsif branch == "stage"
+      UI.message("⚙️ Default Branch Detected: #{branch}. Building with Release(Stage) config.")
+      
+      # OVERRIDE 2: Staging Environment (Use Release config for better testing)
+      build_scheme = "Release(Stage)"
+      build_config = "Stage" 
+
+    elsif branch == "develop"
+      UI.message("⚙️ Default Branch Detected: #{branch}. Building with Release(SIT) config.")
+      
+      # OVERRIDE 3: Development Integration (Standard Integration testing)
+      build_scheme = "Debug(SIT)" # A scheme often pointing to a separate dev server
+      build_config = "SIT"
     end
     # --- End of Conditional Logic ---
 
@@ -72,6 +93,7 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       configuration: build_scheme, # "Release(UAT)",
       sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
+      skip_archive: true,
       clean: true,
       xcargs: "VERBOSE_SCRIPT_LOGGING=YES",
     )
@@ -90,32 +112,32 @@ platform :ios do
   end
   
   # --- Lane for Deployment to App Store Connect (TestFlight/Production) ---
-  # lane :deploy_to_app_store do
-  #   # 1. Update the build number BEFORE building
-  #   increment_build_number(
-  #     xcodeproj: project_path 
-  #   )
+  lane :deploy_to_app_store do
+    # # 1. Update the build number BEFORE building
+    # increment_build_number(
+    #   xcodeproj: project_path 
+    # )
 
-  #   # 2. Build the App Store Release Archive
-  #   gym(
-  #     scheme: scheme_name,
-  #     project: project_path, # Use this OR workspace: workspace_path
-  #     configuration: "Release(Prod)",
-  #     export_method: "app-store", # ESSENTIAL for distribution
-  #     sdk: "iphoneos", # CRUCIAL: Targets the device SDK for a valid archive
-  #     output_directory: "./fastlane/builds", # Define where the IPA goes
-  #     clean: true,
-  #     silent: true
-  #   )
+    # # 2. Build the App Store Release Archive
+    # gym(
+    #   scheme: scheme_name,
+    #   project: project_path, # Use this OR workspace: workspace_path
+    #   configuration: "Release(Prod)",
+    #   export_method: "app-store", # ESSENTIAL for distribution
+    #   sdk: "iphoneos", # CRUCIAL: Targets the device SDK for a valid archive
+    #   output_directory: "./fastlane/builds", # Define where the IPA goes
+    #   clean: true,
+    #   silent: true
+    # )
     
-  #   # 3. Deploy to App Store Connect (TestFlight or Production)
-  #   deliver(
-  #     ipa: "./fastlane/builds/#{scheme_name}.ipa",
-  #     # Set 'force: true' to handle possible version errors during deployment
-  #     force: true
-  #   )
+    # # 3. Deploy to App Store Connect (TestFlight or Production)
+    # deliver(
+    #   ipa: "./fastlane/builds/#{scheme_name}.ipa",
+    #   # Set 'force: true' to handle possible version errors during deployment
+    #   force: true
+    # )
     
-  #   # Optional: Post-deployment notification
-  #   # slack(message: "New version of #{scheme_name} deployed to App Store Connect!")
-  # end
+    # Optional: Post-deployment notification
+    # slack(message: "New version of #{scheme_name} deployed to App Store Connect!")
+  end
 end

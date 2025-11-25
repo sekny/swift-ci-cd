@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CI_CD_uat
+@testable import Swift_CI_CD
 // swiftlint:disable all
 final class Swift_CI_CDTests: XCTestCase {
 

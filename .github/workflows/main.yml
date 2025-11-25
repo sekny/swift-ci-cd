@@ -8,9 +8,11 @@ on:
       # 1. Standard branches (explicit names)
       - develop
       - main 
+      - stage
       
       # 2. Feature branches (using a wildcard)
       - 'feature/main_*'
+      - 'feature/*'
       
       # 3. Release branches (using a wildcard)
       - 'release/**'
