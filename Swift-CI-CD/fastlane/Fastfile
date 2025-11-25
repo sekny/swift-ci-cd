@@ -102,7 +102,8 @@ platform :ios do
     scan(
       scheme: scheme_name,
       project: project_path, # Use this OR workspace: workspace_path
-      device: "iPhone 15", # Specify a common simulator device
+      # device: "iPhone 15", # Specify a common simulator device
+      devices: ["iPhone 15"], # Specify a common simulator device
       sdk: "iphonesimulator",
       clean: true
     )
