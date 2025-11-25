@@ -37,7 +37,7 @@
 		C91287562ED43E540033C361 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		C9981C242ED0536200AF8466 /* CI CD uat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI CD uat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9981C3A2ED0536300AF8466 /* Swift-CI-CDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-CI-CDTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9981C442ED0536300AF8466 /* Swift-CI-CDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-CI-CDUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9981C442ED0536300AF8466 /* CI CD uat.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CI CD uat.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -129,7 +129,7 @@
 			children = (
 				C9981C242ED0536200AF8466 /* CI CD uat.app */,
 				C9981C3A2ED0536300AF8466 /* Swift-CI-CDTests.xctest */,
-				C9981C442ED0536300AF8466 /* Swift-CI-CDUITests.xctest */,
+				C9981C442ED0536300AF8466 /* CI CD uat.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,7 +205,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Swift-CI-CDUITests";
-			productReference = C9981C442ED0536300AF8466 /* Swift-CI-CDUITests.xctest */;
+			productReference = C9981C442ED0536300AF8466 /* CI CD uat.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -223,11 +223,9 @@
 					};
 					C9981C392ED0536300AF8466 = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = C9981C232ED0536200AF8466;
 					};
 					C9981C432ED0536300AF8466 = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = C9981C232ED0536200AF8466;
 					};
 				};
 			};
@@ -412,6 +410,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
+				DEVELOPMENT_TEAM = P3DF2N39QV;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CI-CD/Info.plist";
@@ -426,8 +425,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -443,18 +444,18 @@
 		C91287302ED4002C0033C361 /* Debug(Stage) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Debug(Stage)";
 		};
@@ -464,13 +465,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(Stage)";
 		};
@@ -545,6 +547,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
+				DEVELOPMENT_TEAM = P3DF2N39QV;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CI-CD/Info.plist";
@@ -559,8 +562,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -576,18 +581,18 @@
 		C91287382ED4073E0033C361 /* Debug(SIT) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Debug(SIT)";
 		};
@@ -597,13 +602,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(SIT)";
 		};
@@ -671,6 +677,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
+				DEVELOPMENT_TEAM = P3DF2N39QV;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CI-CD/Info.plist";
@@ -685,8 +692,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -702,18 +711,18 @@
 		C912873C2ED4074E0033C361 /* Release(UAT) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Release(UAT)";
 		};
@@ -723,13 +732,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(UAT)";
 		};
@@ -797,6 +807,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
+				DEVELOPMENT_TEAM = P3DF2N39QV;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CI-CD/Info.plist";
@@ -811,8 +822,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -828,18 +841,18 @@
 		C91287402ED407570033C361 /* Release(SIT) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Release(SIT)";
 		};
@@ -849,13 +862,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(SIT)";
 		};
@@ -923,6 +937,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
+				DEVELOPMENT_TEAM = P3DF2N39QV;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CI-CD/Info.plist";
@@ -937,8 +952,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -954,18 +971,18 @@
 		C91287442ED4075F0033C361 /* Release(Stage) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Release(Stage)";
 		};
@@ -975,13 +992,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(Stage)";
 		};
@@ -1070,8 +1088,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1087,18 +1107,18 @@
 		C91287482ED407820033C361 /* Debug(Prod) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Debug(Prod)";
 		};
@@ -1108,13 +1128,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(Prod)";
 		};
@@ -1125,6 +1146,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(inherited)";
+				DEVELOPMENT_TEAM = P3DF2N39QV;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CI-CD/Info.plist";
@@ -1139,8 +1161,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1174,8 +1198,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11;
 				MARKETING_VERSION = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
 				PRODUCT_NAME = "$(inherited)";
 				REGISTER_APP_GROUPS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1312,36 +1338,36 @@
 		C9981C532ED0536300AF8466 /* Debug(UAT) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Debug(UAT)";
 		};
 		C9981C542ED0536300AF8466 /* Release(Prod) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENV_NAME = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IS_PRODUCTION = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-CI-CD.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swift-CI-CD";
 			};
 			name = "Release(Prod)";
 		};
@@ -1351,13 +1377,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Debug(UAT)";
 		};
@@ -1367,13 +1394,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sekny.Swift-CI-CDUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Swift-CI-CD";
 			};
 			name = "Release(Prod)";
 		};

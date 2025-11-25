@@ -11,6 +11,7 @@
 
 // Backward Compatible Values
 IS_PRODUCTION = YES
+ENV_NAME = prod
 
 BASE_URL = https:/$()/jsonplaceholder.typicode.com
 
