@@ -15,7 +15,7 @@ opt_out_usage
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:ios)
+# default_platform(:ios)
 
 # platform :ios do
 #   desc "Description of what the lane does"
@@ -33,59 +33,14 @@ platform :ios do
   # workspace_path = "YourAppName.xcworkspace" # Uncomment if you use a workspace (e.g., with CocoaPods)
   scheme_name = "Production"
   build_scheme = "Release(Prod)" 
-
-
-  # This lane is designed for your UAT testing environment in CI/CD.
-  lane :test_uat do
-    
-    # 1. FIX: Explicitly select the Xcode version (based on your runner's available version).
-    xcode_select "/Applications/Xcode_16.2.app"
-
-    # 2. Ensure a clean build environment
-    clear_derived_data
-
-    # 3. Run the UI tests using the scan action
-    scan(
-      # Specify the Scheme that builds your UAT target
-      scheme: "Swift-CI-CD UAT",
-      
-      # Use the specific configuration name for UAT
-      configuration: "Release(UAT)", 
-
-      # FIX: Use 'destination' to specify a stable device and OS (17.5) known to be installed.
-      # This resolves the "iOS 18.2 is not installed" error.
-      destination: "platform=iOS Simulator,name=iPhone 15,OS=17.5",
-      
-      # CRITICAL FIX: Disable code signing and provisioning requirements.
-      # This prevents the build failure (Exit status: 65) caused by missing certificates on the CI runner.
-      xcargs: "CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
-      
-      # Specify the device model (optional, but good for clarity)
-      devices: ["iPhone 15"],
-      
-      # Ensure clean derived data before starting the build/test
-      clean: true,
-
-      # Specify the UI test bundle to run
-      # only_testing: [
-      #   "Swift_CI_CDUITests/Swift_CI_CDUITests" 
-      # ],
-      
-      # Output options
-      output_directory: "./test_output",
-      output_types: "junit,html",
-      include_simulator_logs: true
-    )
-  end
   
   # --- Lane for Continuous Integration (CI) and Local Testing ---
   lane :build_and_test do
     # 1. FIX: Explicitly select the Xcode version (based on your runner's available version).
-    xcode_select "/Applications/Xcode_16.2.app"
+    # xcode_select "/Applications/Xcode_16.2.app"
 
     # 2. Ensure a clean build environment
     clear_derived_data
-
     # Get the current branch name
     branch = git_branch
 
@@ -169,9 +124,9 @@ platform :ios do
       # ],
 
       # Output options
-      output_directory: "./test_output",
-      output_types: "junit,html",
-      include_simulator_logs: true
+      # output_directory: "./test_output",
+      # output_types: "junit,html",
+      # include_simulator_logs: true
     )
     
     # Optional: Add a notification if tests pass
