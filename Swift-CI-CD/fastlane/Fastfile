@@ -103,10 +103,25 @@ platform :ios do
       scheme: scheme_name,
       project: project_path, # Use this OR workspace: workspace_path
       destination: "platform=iOS Simulator,name=iPhone 15,OS=17.5",
+
+      # CRITICAL FIX: Disable code signing and provisioning requirements.
+      # This prevents the build failure (Exit status: 65) caused by missing certificates on the CI runner.
+      xcargs: "CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
+
       # device: "iPhone 15", # Specify a common simulator device
       devices: ["iPhone 15"], # Specify a common simulator device
       sdk: "iphonesimulator",
-      clean: true
+      clean: true,
+
+      # Specify the UI test bundle to run
+      # only_testing: [
+      #   "Swift_CI_CDUITests/Swift_CI_CDUITests" 
+      # ],
+
+      # Output options
+      output_directory: "./test_output",
+      output_types: "junit,html",
+      include_simulator_logs: true
     )
     
     # Optional: Add a notification if tests pass
