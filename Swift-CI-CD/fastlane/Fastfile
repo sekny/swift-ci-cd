@@ -93,6 +93,7 @@ platform :ios do
     # This overrides the problematic iOS 26.1 requirement from the project settings.
     safe_deployment_target = "16.0"
     deployment_arg = "IPHONEOS_DEPLOYMENT_TARGET=#{safe_deployment_target}"
+    explicit_destination = "platform=iOS Simulator,OS=17.5"
 
     # 1. (Optional) Install dependencies if needed (e.g., if using CocoaPods)
     # cocoapods 
@@ -103,7 +104,7 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       configuration: build_scheme, # "Release(UAT)",
       sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
-      destination: "platform=iOS Simulator",
+      destination: explicit_destination,
       skip_archive: true,
       clean: true,
       xcargs: "#{deployment_arg} VERBOSE_SCRIPT_LOGGING=YES",
@@ -115,7 +116,7 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       # devices: ["iPhone 15"], # Specify a common simulator device
       # sdk: "iphonesimulator",
-      destination: "platform=iOS Simulator",
+      destination: explicit_destination,
       clean: false, # Already cleaned by gym
 
       xcargs: "#{deployment_arg} CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
