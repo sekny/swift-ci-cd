@@ -27,12 +27,11 @@ jobs:
     - name: ⬇️ Checkout repository
       uses: actions/checkout@v4 # Use the latest version
 
-    # --- NEW: Robust Xcode Selection (Select 16.2, install if needed, then fallback) ---
-    # This action abstracts the complex logic to check, install (if necessary),
-    # and select the specific Xcode version (16.2). If 16.2 cannot be made available,
-    # it will automatically fall back to the default installed version.
+    # --- FIX: Using the correct, community-standard action (maxim-lobanov) ---
+    # This action correctly handles selecting 16.2, installing it if necessary, 
+    # or falling back to a default installed version.
     - name: Select or Install Xcode 16.2
-      uses: rfd/setup-xcode@v1
+      uses: maxim-lobanov/setup-xcode@v1
       with:
         version: '16.2'
 
