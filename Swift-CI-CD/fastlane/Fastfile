@@ -100,7 +100,7 @@ platform :ios do
       sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
       skip_archive: true,
       clean: true,
-      xcargs: "VERBOSE_SCRIPT_LOGGING=YES",
+      xcargs: "IPHONEOS_DEPLOYMENT_TARGET=16.0 VERBOSE_SCRIPT_LOGGING=YES",
     )
     
     # 3. Run tests on a specified simulator

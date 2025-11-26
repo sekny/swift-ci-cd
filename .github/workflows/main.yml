@@ -33,7 +33,7 @@ jobs:
     - name: Select or Install Xcode 16.2
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        version: '16.2'
+        version: '16'
 
     - name: Show Current Xcode version (Verification)
       run: xcodebuild -version
