@@ -89,6 +89,11 @@ platform :ios do
     end
     # --- End of Conditional Logic ---
 
+    # --- CRITICAL FIX: Explicitly set a safe Deployment Target (e.g., 16.0) ---
+    # This overrides the problematic iOS 26.1 requirement from the project settings.
+    safe_deployment_target = "16.0"
+    deployment_arg = "IPHONEOS_DEPLOYMENT_TARGET=#{safe_deployment_target}"
+
     # 1. (Optional) Install dependencies if needed (e.g., if using CocoaPods)
     # cocoapods 
     
@@ -98,9 +103,10 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       configuration: build_scheme, # "Release(UAT)",
       sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
+      destination: "platform=iOS Simulator,name=iPhone 15",
       skip_archive: true,
       clean: true,
-      xcargs: "IPHONEOS_DEPLOYMENT_TARGET=16.0 VERBOSE_SCRIPT_LOGGING=YES",
+      xcargs: "#{deployment_arg} VERBOSE_SCRIPT_LOGGING=YES",
     )
     
     # 3. Run tests on a specified simulator
@@ -116,7 +122,10 @@ platform :ios do
       # device: "iPhone 15", # Specify a common simulator device
       devices: ["iPhone 15"], # Specify a common simulator device
       sdk: "iphonesimulator",
-      clean: true,
+      destination: "platform=iOS Simulator,name=iPhone 15",
+      clean: false, # Already cleaned by gym
+
+      xcargs: "#{deployment_arg} CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
 
       # Specify the UI test bundle to run
       # only_testing: [
