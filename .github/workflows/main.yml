@@ -21,7 +21,7 @@ jobs:
   # 1. BUILD and TEST Job
   build_and_test:
     name: Build & Test 🧪
-    runs-on: macos-latest # Use a specific macOS version (e.g., macos-14) for stability if needed
+    runs-on: macos-15-arm64 # macos-latest # Use a specific macOS version (e.g., macos-14) for stability if needed
     timeout-minutes: 90
 
     steps:
@@ -33,7 +33,7 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1
       with:
         version: '16.2'
-        
+
     - name: Download iOS Platform
       run: xcodebuild -downloadPlatform iOS
 

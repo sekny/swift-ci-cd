@@ -101,7 +101,7 @@ platform :ios do
 
     # --- CRITICAL FIX 3: Use the 'latest' available OS version ---
     # This selects ANY device that runs the newest OS available with the installed Xcode.
-    explicit_destination = "platform=iOS Simulator,name=iPhone 15,OS=17.0"
+    explicit_destination = "platform=iOS Simulator,name=iPhone 16,OS=26.0"
 
     # 1. (Optional) Install dependencies if needed (e.g., if using CocoaPods)
     # cocoapods 
@@ -112,7 +112,7 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       configuration: build_scheme, # "Release(UAT)",
       sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
-      # destination: explicit_destination,
+      destination: explicit_destination,
       skip_archive: true,
       clean: true,
       xcargs: "#{deployment_arg} #{exclusion_arg} VERBOSE_SCRIPT_LOGGING=YES",
@@ -124,7 +124,7 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       # devices: ["iPhone 15"], # Specify a common simulator device
       sdk: "iphonesimulator",
-      # destination: explicit_destination,
+      destination: explicit_destination,
       clean: false, # Already cleaned by gym
 
       xcargs: "#{deployment_arg} #{exclusion_arg} CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
