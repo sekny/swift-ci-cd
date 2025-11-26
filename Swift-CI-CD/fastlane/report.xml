@@ -5,27 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.000247">
+      <testcase classname="fastlane.lanes" name="0: opt_out_usage" time="0.000181">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: clear_derived_data" time="0.162589">
+      <testcase classname="fastlane.lanes" name="1: clear_derived_data" time="0.73812">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: git_branch" time="0.018432">
+      <testcase classname="fastlane.lanes" name="2: git_branch" time="0.017481">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: gym" time="24.725202">
+      <testcase classname="fastlane.lanes" name="3: gym" time="21.913395">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: scan" time="116.346794">
+      <testcase classname="fastlane.lanes" name="4: scan" time="153.215727">
         
       </testcase>
     

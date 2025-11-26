@@ -22,6 +22,7 @@ jobs:
   build_and_test:
     name: Build & Test 🧪
     runs-on: macos-latest # Use a specific macOS version (e.g., macos-14) for stability if needed
+    timeout-minutes: 90
 
     steps:
     - name: ⬇️ Checkout repository
@@ -32,6 +33,9 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1
       with:
         version: '16.2'
+        
+    - name: Download iOS Platform
+      run: xcodebuild -downloadPlatform iOS
 
     # --- 2. Runtime Installation Removed ---
     # Removed the manual runtime installation step as 'xcversion' is not available.
