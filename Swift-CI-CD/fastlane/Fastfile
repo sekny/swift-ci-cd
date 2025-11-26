@@ -89,10 +89,18 @@ platform :ios do
     end
     # --- End of Conditional Logic ---
 
-    # --- CRITICAL FIX: Explicitly set a safe Deployment Target (e.g., 16.0) ---
+    # --- CRITICAL FIX 1: Explicitly set a safe Deployment Target (e.g., 16.0) ---
     # This overrides the problematic iOS 26.1 requirement from the project settings.
     safe_deployment_target = "16.0"
     deployment_arg = "IPHONEOS_DEPLOYMENT_TARGET=#{safe_deployment_target}"
+
+    # --- CRITICAL FIX 2: Exclude ARM64 for Simulator Builds (Linker Error Fix) ---
+    # This resolves the 'building for iOS Simulator, but linking against dylib built for iOS' error 
+    # when running on Apple Silicon (M1/M2/M3) GitHub runners.
+    exclusion_arg = "EXCLUDED_ARCHS[sdk=iphonesimulator*]='arm64'"
+
+    # --- CRITICAL FIX 3: Use the 'latest' available OS version ---
+    # This selects ANY device that runs the newest OS available with the installed Xcode.
     explicit_destination = "platform=iOS Simulator,OS=latest"
 
     # 1. (Optional) Install dependencies if needed (e.g., if using CocoaPods)
@@ -107,7 +115,7 @@ platform :ios do
       destination: explicit_destination,
       skip_archive: true,
       clean: true,
-      xcargs: "#{deployment_arg} VERBOSE_SCRIPT_LOGGING=YES",
+      xcargs: "#{deployment_arg} #{exclusion_arg} VERBOSE_SCRIPT_LOGGING=YES",
     )
     
     # 3. Run tests on a specified simulator
@@ -119,7 +127,7 @@ platform :ios do
       destination: explicit_destination,
       clean: false, # Already cleaned by gym
 
-      xcargs: "#{deployment_arg} CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
+      xcargs: "#{deployment_arg} #{exclusion_arg} CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
 
       # Specify the UI test bundle to run
       # only_testing: [
