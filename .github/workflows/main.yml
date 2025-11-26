@@ -33,24 +33,10 @@ jobs:
       with:
         version: '16.2'
 
-    # --- 2. Check/Install iOS 17.5 Runtime (Manual Script) ---
-    # Replaced the failing action with a manual script using xcversion to ensure
-    # the iOS 17.5 runtime is present before tests begin.
-    - name: Ensure iOS 17.5 Simulator Runtime is Available
-      run: |
-        RUNTIME_VERSION="iOS 17.5"
-        echo "Checking for $RUNTIME_VERSION runtime..."
-        
-        # List installed runtimes and check if 17.5 is present
-        if xcrun simctl list runtimes | grep "$RUNTIME_VERSION" > /dev/null; then
-          echo "$RUNTIME_VERSION runtime is already installed."
-        else
-          echo "$RUNTIME_VERSION runtime not found. Attempting to install..."
-          # Install the specific runtime using xcversion. This can take several minutes.
-          # The 'xcversion' tool is typically available on macOS runners.
-          xcversion install --simulator "$RUNTIME_VERSION"
-          echo "$RUNTIME_VERSION runtime installation complete."
-        fi
+    # --- 2. Runtime Installation Removed ---
+    # Removed the manual runtime installation step as 'xcversion' is not available.
+    # The Fastfile is updated to use the 'OS=latest' destination, relying on the OS 
+    # bundled with Xcode 16.2.
 
     - name: Show Current Xcode version and Runtimes (Verification)
       run: |

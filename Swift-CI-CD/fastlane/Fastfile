@@ -93,7 +93,7 @@ platform :ios do
     # This overrides the problematic iOS 26.1 requirement from the project settings.
     safe_deployment_target = "16.0"
     deployment_arg = "IPHONEOS_DEPLOYMENT_TARGET=#{safe_deployment_target}"
-    explicit_destination = "platform=iOS Simulator,OS=17.5"
+    explicit_destination = "platform=iOS Simulator,OS=latest"
 
     # 1. (Optional) Install dependencies if needed (e.g., if using CocoaPods)
     # cocoapods 
