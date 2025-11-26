@@ -27,21 +27,17 @@ jobs:
     - name: ⬇️ Checkout repository
       uses: actions/checkout@v4 # Use the latest version
 
-    # --- MANDATORY: Set the desired Xcode version ---
-    # This step ensures both xcodebuild and Fastlane use the correct version.
-    - name: Select Xcode 16.0
-      # The path is always /Applications/Xcode_<version>.app
-      run: sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer
-
-    - name: Show Xcode version (Verification)
-      run: xcodebuild -version
-
-    - name: 🍎 Select Xcode Version
-      # FIX: The 'actions/setup-xcode' action does not exist in the 'actions/' organization.
-      # Use the correct, community-maintained action (maxim-lobanov/setup-xcode).
-      uses: maxim-lobanov/setup-xcode@v1 
+    # --- NEW: Robust Xcode Selection (Select 16.2, install if needed, then fallback) ---
+    # This action abstracts the complex logic to check, install (if necessary),
+    # and select the specific Xcode version (16.2). If 16.2 cannot be made available,
+    # it will automatically fall back to the default installed version.
+    - name: Select or Install Xcode 16.2
+      uses: rfd/setup-xcode@v1
       with:
-        xcode-version: '16.2' # Ensure this version is available on the runner
+        version: '16.2'
+
+    - name: Show Current Xcode version (Verification)
+      run: xcodebuild -version
 
     - name: 💎 Install Ruby & Dependencies
       # Setup Ruby before installing gems, necessary for Bundler/Fastlane
@@ -71,7 +67,7 @@ jobs:
       run: |
         # ➡️ FIX: Change directory before executing Fastlane
         cd ./Swift-CI-CD
-        bundle exec fastlane ios build_and_test
+        bundle exec fastlane ios build_and_test device:"iPhone 15"
     
       
     # 💡 If you need to pass files (like .ipa) to the deploy job, add an artifact upload step here:
