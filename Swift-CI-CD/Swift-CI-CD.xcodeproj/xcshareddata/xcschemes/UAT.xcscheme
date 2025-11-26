@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9981C432ED0536300AF8466"
-               BuildableName = "Swift-CI-CDUITests.xctest"
+               BuildableName = "CI CD uat.xctest"
                BlueprintName = "Swift-CI-CDUITests"
                ReferencedContainer = "container:Swift-CI-CD.xcodeproj">
             </BuildableReference>

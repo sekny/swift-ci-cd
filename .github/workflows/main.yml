@@ -27,6 +27,15 @@ jobs:
     - name: ⬇️ Checkout repository
       uses: actions/checkout@v4 # Use the latest version
 
+    # --- MANDATORY: Set the desired Xcode version ---
+    # This step ensures both xcodebuild and Fastlane use the correct version.
+    - name: Select Xcode 16.0
+      # The path is always /Applications/Xcode_<version>.app
+      run: sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer
+
+    - name: Show Xcode version (Verification)
+      run: xcodebuild -version
+
     - name: 🍎 Select Xcode Version
       # FIX: The 'actions/setup-xcode' action does not exist in the 'actions/' organization.
       # Use the correct, community-maintained action (maxim-lobanov/setup-xcode).
