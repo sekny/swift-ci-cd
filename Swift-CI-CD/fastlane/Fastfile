@@ -103,7 +103,7 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       configuration: build_scheme, # "Release(UAT)",
       sdk: "iphonesimulator", # CRUCIAL: Fixes the 'no such module UIKit' error for testing
-      destination: "platform=iOS Simulator,name=iPhone 14",
+      destination: "platform=iOS Simulator",
       skip_archive: true,
       clean: true,
       xcargs: "#{deployment_arg} VERBOSE_SCRIPT_LOGGING=YES",
@@ -115,7 +115,7 @@ platform :ios do
       project: project_path, # Use this OR workspace: workspace_path
       # devices: ["iPhone 15"], # Specify a common simulator device
       # sdk: "iphonesimulator",
-      destination: "platform=iOS Simulator,name=iPhone 14",
+      destination: "platform=iOS Simulator",
       clean: false, # Already cleaned by gym
 
       xcargs: "#{deployment_arg} CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
