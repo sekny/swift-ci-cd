@@ -34,8 +34,8 @@ jobs:
     #   with:
     #     version: '16.2'
 
-    - name: Download iOS Platform
-      run: xcodebuild -downloadPlatform iOS
+    # - name: Download iOS Platform
+    #   run: xcodebuild -downloadPlatform iOS
 
     # --- 2. Runtime Installation Removed ---
     # Removed the manual runtime installation step as 'xcversion' is not available.
