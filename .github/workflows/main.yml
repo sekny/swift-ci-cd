@@ -75,7 +75,7 @@ jobs:
       run: |
         # ➡️ FIX: Change directory before executing Fastlane
         cd ./Swift-CI-CD
-        bundle exec fastlane ios build_and_test
+        bundle exec fastlane ios build_and_test --env development
     
       
     # 💡 If you need to pass files (like .ipa) to the deploy job, add an artifact upload step here:

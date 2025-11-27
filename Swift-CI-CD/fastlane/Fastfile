@@ -101,7 +101,7 @@ platform :ios do
 
     # --- CRITICAL FIX 3: Use the 'latest' available OS version ---
     # This selects ANY device that runs the newest OS available with the installed Xcode.
-    explicit_destination = "platform=iOS Simulator,name=iPhone 16,OS=18.0" # "platform=iOS Simulator,name=iPhone 16,OS=26.0"
+    explicit_destination = "platform=iOS Simulator,name=iPhone 16,OS=18"
 
     # 1. (Optional) Install dependencies if needed (e.g., if using CocoaPods)
     # cocoapods 
