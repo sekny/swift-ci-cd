@@ -1,7 +1,7 @@
 name: CI/CD for iOS
 
 on:
-  pull_request:
+  # pull_request:
   push:
     branches:
       # - main # Triggers on push to the main branch
@@ -21,7 +21,7 @@ jobs:
   # 1. BUILD and TEST Job
   build_and_test:
     name: Build & Test 🧪
-    runs-on: macos-15-arm64 # macos-latest # Use a specific macOS version (e.g., macos-14) for stability if needed
+    runs-on: macos-latest # macos-15-arm64 # macos-latest # Use a specific macOS version (e.g., macos-14) for stability if needed
     timeout-minutes: 90
 
     steps:
